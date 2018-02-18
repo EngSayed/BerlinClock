@@ -7,8 +7,6 @@ namespace BerlinClock.Classes
     {
         private const int NumberOfHoursLamps = 4;
         private const int NumberOfHourPerLamp = 5;
-        private const string OnLampColor = "R";
-        private const string OffLampColor = "O";
 
         public static List<string> GetBerlinClockHours(int timeHours)
         {
@@ -37,15 +35,15 @@ namespace BerlinClock.Classes
             var lampsSwitchBuilder = new StringBuilder();
             for (var i = 0; i < numberOfOnLamps; i++)
             {
-                lampsSwitchBuilder.Append(1);
+                lampsSwitchBuilder.Append(Switch.ON);
             }
 
             while (lampsSwitchBuilder.Length < NumberOfHoursLamps)
             {
-                lampsSwitchBuilder.Append("0");
+                lampsSwitchBuilder.Append(Switch.Off);
             }
 
-            return lampsSwitchBuilder.ToString().Replace("1", OnLampColor).Replace("0", OffLampColor);
+            return lampsSwitchBuilder.ToString().Replace(Switch.ON, LampColor.OnRedStr).Replace(Switch.Off, LampColor.OffStr);
         }
     }
 }

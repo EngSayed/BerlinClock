@@ -53,6 +53,8 @@
     <Compile Include="Classes\BerlinClockHours.cs" />
     <Compile Include="Classes\BerlinClockMinutes.cs" />
     <Compile Include="Classes\BerlinClockSeconds.cs" />
+    <Compile Include="Classes\LampColor.cs" />
+    <Compile Include="Classes\Switch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BDD\BerlinClockFeatureSteps.feature.cs">
       <AutoGen>True</AutoGen>

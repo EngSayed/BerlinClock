@@ -7,11 +7,7 @@ namespace BerlinClock.Classes
     public class BerlinClockMinutes
     {
         private const int NumberOfMinutesLampsFirstRow = 11;
-        private const int NumberOfMinutesLampsSecondRow = 4;
-        private const char OnLampRedColor = 'R';
-        private const string OnLampYellowColor = "Y";
-        private const string OffLampColorStr = "O";
-        private const char OffLampColorChar = 'O';
+        private const int NumberOfMinutesLampsSecondRow = 4;        
 
         public static List<string> GetBerlinClockMinutes(TimeSpan aTimeSpan)
         {
@@ -36,43 +32,41 @@ namespace BerlinClock.Classes
 
             return GetBerlinMinutesLampsSecondRow(numberOfOnLamps);
         }
-        // todo - Refactor
+        
         private static string GetBerlinMinutesLampsFirstRow(int numberOfOnLamps)
         {
-            var lampsSwitchBuilder = new StringBuilder();
-            for (var i = 0; i < numberOfOnLamps; i++)
-            {
-                lampsSwitchBuilder.Append(1);
-            }
-
-            while (lampsSwitchBuilder.Length != NumberOfMinutesLampsFirstRow)
-            {
-                lampsSwitchBuilder.Append("0");
-            }
+            var lampsSwitchBuilder = BuildMinuteRow(numberOfOnLamps, NumberOfMinutesLampsFirstRow);
 
             for (var i = 2; i < lampsSwitchBuilder.Length; i = i + 3)
             {
                 var thirdMultipliedLamp = lampsSwitchBuilder[i];
-                lampsSwitchBuilder[i] = thirdMultipliedLamp == '1' ? OnLampRedColor : OffLampColorChar;
+                lampsSwitchBuilder[i] = thirdMultipliedLamp == Switch.ON_Char ? LampColor.OnRedChar : LampColor.OffChar;
             }
 
-            return lampsSwitchBuilder.ToString().Replace("1", OnLampYellowColor).Replace("0", OffLampColorStr);
+            return lampsSwitchBuilder.ToString().Replace(Switch.ON, LampColor.OnYellow).Replace(Switch.Off, LampColor.OffStr);
         }
 
         private static string GetBerlinMinutesLampsSecondRow(int numberOfOnLamps)
         {
+            var lampsSwitchBuilder = BuildMinuteRow(numberOfOnLamps, NumberOfMinutesLampsSecondRow);
+
+            return lampsSwitchBuilder.ToString().Replace(Switch.ON, LampColor.OnYellow).Replace(Switch.Off, LampColor.OffStr);
+        }
+
+        private static StringBuilder BuildMinuteRow(int numberOfOnLamps, int numberOfMinutesLamps)
+        {
             var lampsSwitchBuilder = new StringBuilder();
             for (var i = 0; i < numberOfOnLamps; i++)
             {
-                lampsSwitchBuilder.Append(1);
-            }
-            
-            while (lampsSwitchBuilder.Length < NumberOfMinutesLampsSecondRow)
-            {
-                lampsSwitchBuilder.Append("0");
+                lampsSwitchBuilder.Append(Switch.ON);
             }
 
-            return lampsSwitchBuilder.ToString().Replace("1", OnLampYellowColor).Replace("0", OffLampColorStr);
+            while (lampsSwitchBuilder.Length < numberOfMinutesLamps)
+            {
+                lampsSwitchBuilder.Append(Switch.Off);
+            }
+
+            return lampsSwitchBuilder;
         }
     }
 }
