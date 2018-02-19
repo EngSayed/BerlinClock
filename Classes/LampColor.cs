@@ -1,6 +1,6 @@
-﻿namespace BerlinClock.Classes
+﻿namespace BerlinClock
 {
-    public class LampColor
+    internal class LampColor
     {
         public const string OnRedStr = "R";
         public const char OnRedChar = 'R';

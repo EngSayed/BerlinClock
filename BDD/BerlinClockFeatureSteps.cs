@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using BerlinClock.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 
-namespace BerlinClock.BDD
+namespace BerlinClock
 {
     [Binding]
     public class TheBerlinClockSteps

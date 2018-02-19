@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using BerlinClock.Classes;
 using NUnit.Framework;
 
 namespace BerlinClock.UnitTest
@@ -26,7 +25,7 @@ namespace BerlinClock.UnitTest
         public void TimeConverterThrowsExceptionWhenInputNotTimeFormat()
         {
             ITimeConverter timeConverter = new TimeConverter();
-            Assert.Throws<ArgumentException>(() => timeConverter.ConvertTime("52:52:01"));
+            Assert.Throws<ArgumentException>(() => timeConverter.ConvertTime("1252:01"));
         }
 
         [Test]

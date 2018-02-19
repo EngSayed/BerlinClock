@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BerlinClock.Classes
+namespace BerlinClock
 {
     public class TimeConverter : ITimeConverter
     {

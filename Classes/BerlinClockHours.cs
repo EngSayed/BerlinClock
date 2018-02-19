@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace BerlinClock.Classes
+namespace BerlinClock
 {
-    public class BerlinClockHours
+    internal class BerlinClockHours
     {
         private const int NumberOfHoursLamps = 4;
         private const int NumberOfHourPerLamp = 5;

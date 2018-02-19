@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BerlinClock.Classes
+namespace BerlinClock
 {
-    public class BerlinClockSeconds
+    internal class BerlinClockSeconds
     {
         private const int NumberOfSecondsPerLamp = 2;
 

@@ -1,6 +1,6 @@
-﻿namespace BerlinClock.Classes
+﻿namespace BerlinClock
 {
-    public class Switch
+    internal class Switch
     {
         public const string ON = "1";
         public const char ON_Char = '1';
